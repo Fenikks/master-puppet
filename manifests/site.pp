@@ -62,4 +62,9 @@ node slave1.puppet {
     ensure => running,
     enable => true,
   }
+  
+  service {'firewalld':
+    ensure => stopped,
+    enable => false,
+  }
 }
