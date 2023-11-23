@@ -48,6 +48,7 @@ node slave1.puppet {
     command => "gunzip -c /tmp/wcg.gz > /opt/wordcloud/word-cloud-generator",
     require => File['/tmp/wcg.gz'],
     path => "/usr/bin",
+    notify => Service['wcg'],
   }
 
   file {'/opt/wordcloud/word-cloud-generator':
@@ -56,14 +57,8 @@ node slave1.puppet {
     require => Exec['unpack wcg'],
   }
 
-
-#- name: Change application file permissions
-#  file:
-#    dest: "{{ wcg_path }}/word-cloud-generator"
-#    group: wcg
-#    owner: wcg
-#    mode: '0755'
-#  notify: wcg-service
-
-
+  service {'wcg':
+    ensure => running,
+    enable => true,
+  }
 }
