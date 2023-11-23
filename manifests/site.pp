@@ -47,6 +47,7 @@ node slave1.puppet {
   exec {'unpack wcg':
     command => "gunzip -c /tmp/wcg.gz > /opt/wordcloud/word-cloud-generator",
     require => File['/tmp/wcg.gz'],
+    path => "/usr/bin",
   }
 
   file {'/opt/wordcloud/word-cloud-generator':
