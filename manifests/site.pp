@@ -54,6 +54,7 @@ node slave1.puppet {
   file {'/opt/wordcloud/word-cloud-generator':
     owner => "wcg",
     group => "wcg",
+    mode => "755",
     require => Exec['unpack wcg'],
   }
 
