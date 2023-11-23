@@ -1,0 +1,9 @@
+[Unit]
+Description=wcg service
+
+[Service]
+ExecStart=/opt/wordcloud/word-cloud-generator
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
