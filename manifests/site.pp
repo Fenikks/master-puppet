@@ -37,8 +37,8 @@ node slave1.puppet {
 
   user {'wcg':
     ensure => present,
-    groups => ['wcg']
-    require => Group['wcg']
+    groups => ['wcg'],
+    require => Group['wcg'],
   }
 
   file {'/opt/wordcloud':
