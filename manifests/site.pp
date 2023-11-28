@@ -5,12 +5,16 @@ include dev_editor
 
 }
 
-class dev_user {
-  user {'demouser':
+class dev_user (
+  $usrnm = 'demouser'
+  $pwd = '$1$pWicQEb0$lGXc.RyHF7VAG7tKOpIap1'
+  $grps = ['wheel']
+){
+  user {$usrnm:
     ensure => present,
     managehome => true,
-    groups => ['wheel'],
-    password => '$1$pWicQEb0$lGXc.RyHF7VAG7tKOpIap1'
+    groups => $grps,
+    password => $pwd
   }
 }
 
