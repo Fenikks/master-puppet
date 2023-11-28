@@ -1,5 +1,7 @@
 node default{
   class { 'apache': }
+
+  include wcg
   
   class {'dev_user':
     pwd => '$1$zPtRgDqL$TRZ1y1F0N6bvWBHS3iKy11',
