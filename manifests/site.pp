@@ -1,6 +1,8 @@
 node default{
 
-include dev_user
+class {'dev_user':
+  pwd => '$1$zPtRgDqL$TRZ1y1F0N6bvWBHS3iKy11'
+}
 include dev_editor
 
 }
