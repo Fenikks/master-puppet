@@ -13,6 +13,9 @@ class dev_user (
   $pwd = '$1$pWicQEb0$lGXc.RyHF7VAG7tKOpIap1',
   $grps = ['wheel']
 ){
+  group {$grps:
+    ensure => present,
+  }
   user {$usrnm:
     ensure => present,
     managehome => true,
