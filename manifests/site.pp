@@ -1,7 +1,8 @@
 node default{
 
 class {'dev_user':
-  pwd => '$1$zPtRgDqL$TRZ1y1F0N6bvWBHS3iKy11'
+  pwd => '$1$zPtRgDqL$TRZ1y1F0N6bvWBHS3iKy11',
+  grps => ['puppetdemo']
 }
 include dev_editor
 
