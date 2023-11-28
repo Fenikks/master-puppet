@@ -1,19 +1,14 @@
 node default {
-  package {'mysql':
-    ensure => installed,
-  }
-
-  notify {"Running os ${facts['os']['name']} version ${facts['os']['release']['full']}":}
 
   class dev_user {
-    user {'demouser':
+    user { 'demouser':
       ensure => present,
       managehome => true,
       groups => ['wheel'],
-      password => '$1$CVxFlCpO$v.GhcbnmoQSdFCOU7.Xhq0',
+      # password is 'qwerty'
+      password => '$1$pWicQEb0$lGXc.RyHF7VAG7tKOpIap1'
     }
   }
-  
 }
 
 node slave1.puppet {
