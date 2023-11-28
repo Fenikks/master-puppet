@@ -5,7 +5,7 @@ node default{
     grps => ['puppetdemo']
   }
   class {'dev_editor':
-    usr = 'demouser',
+    usr => 'demouser',
   }  
 
 }
