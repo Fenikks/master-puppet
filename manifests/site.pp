@@ -1,10 +1,12 @@
 node default{
 
-class {'dev_user':
-  pwd => '$1$zPtRgDqL$TRZ1y1F0N6bvWBHS3iKy11',
-  grps => ['puppetdemo']
-}
-include dev_editor
+  class {'dev_user':
+    pwd => '$1$zPtRgDqL$TRZ1y1F0N6bvWBHS3iKy11',
+    grps => ['puppetdemo']
+  }
+  class {'dev_editor':
+    usr = 'demouser',
+  }  
 
 }
 
@@ -30,7 +32,7 @@ class dev_editor (
   package {'vim':
     ensure => present,
   }
-  file {'/home/$usr/.vimrc':
+  file {"/home/$usr/.vimrc":
     ensure => file,
     owner => $usr,
     group => $usr,
