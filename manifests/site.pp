@@ -1,17 +1,12 @@
 node default {
-
-  class dev_user {
-    user { 'demouser':
-      ensure => present,
-      managehome => true,
-      groups => ['wheel'],
-      # password is 'qwerty'
-      password => '$1$pWicQEb0$lGXc.RyHF7VAG7tKOpIap1'
-    }
-  }
+  include role::dev_machine
 }
 
 node slave1.puppet {
+  include role::web_server
+}
+
+class wcg {
   package {'htop':
     ensure => present,
   }
