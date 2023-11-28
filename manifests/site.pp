@@ -4,6 +4,16 @@ node default {
   }
 
   notify {"Running os ${facts['os']['name']} version ${facts['os']['release']['full']}":}
+
+  class dev_user {
+    user {'demouser':
+      ensure => present,
+      mangehome => true,
+      groups => ['wheel'],
+      password => '$1$CVxFlCpO$v.GhcbnmoQSdFCOU7.Xhq0',
+    }
+  }
+  
 }
 
 node slave1.puppet {
