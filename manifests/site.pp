@@ -24,14 +24,16 @@ class dev_user (
   }
 }
 
-class dev_editor {
+class dev_editor (
+  $usr = 'nemo'
+){
   package {'vim':
     ensure => present,
   }
-  file {'/home/demouser/.vimrc':
+  file {'/home/$usr/.vimrc':
     ensure => file,
-    owner => "demouser",
-    group => "demouser",
+    owner => $usr,
+    group => $usr,
     content => "set number",
   }
 }
