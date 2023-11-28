@@ -6,8 +6,8 @@ include dev_editor
 }
 
 class dev_user (
-  $usrnm = 'demouser'
-  $pwd = '$1$pWicQEb0$lGXc.RyHF7VAG7tKOpIap1'
+  $usrnm = 'demouser',
+  $pwd = '$1$pWicQEb0$lGXc.RyHF7VAG7tKOpIap1',
   $grps = ['wheel']
 ){
   user {$usrnm:
