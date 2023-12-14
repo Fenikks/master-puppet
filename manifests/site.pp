@@ -1,12 +1,18 @@
 node master.puppet {
-    # firewalld_port { 'Open port 8140 in the public zone':
-    #     ensure   => present,
-    #     zone     => 'public',
-    #     port     => 8140,
-    #     protocol => 'tcp',
-    # }
+    firewalld_service { 'Allow http from the external zone':
+        ensure  => 'present',
+        service => 'http',
+        zone    => 'public',
+    }
 
     firewalld_port { 'Open port 8140 in the public zone':
+        ensure   => present,
+        zone     => 'public',
+        port     => 8140,
+        protocol => 'tcp',
+    }
+
+    firewalld_port { 'Open port 81 in the public zone':
         ensure   => present,
         zone     => 'public',
         port     => '81',
