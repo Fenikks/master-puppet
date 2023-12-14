@@ -3,6 +3,11 @@ class minecraft {
         ensure  => directory,
     }
 
+    file {'/opt/minecraft/eula.txt':
+        ensure => file,
+        content => "eula=true",
+    }
+
     package {'java-17-openjdk':
         ensure => installed,
     }
