@@ -1,10 +1,10 @@
 node master.puppet {
-    firewalld_port { 'Open port 8140 in the public zone':
-        ensure   => present,
-        zone     => 'public',
-        port     => 8140,
-        protocol => 'tcp',
-    }
+    # firewalld_port { 'Open port 8140 in the public zone':
+    #     ensure   => present,
+    #     zone     => 'public',
+    #     port     => 8140,
+    #     protocol => 'tcp',
+    # }
 
     firewalld_port { 'Open port 8140 in the public zone':
         ensure   => present,
