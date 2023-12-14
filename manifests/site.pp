@@ -20,6 +20,14 @@ node master.puppet {
 }
 
 node slave1.puppet {
+
+    firewalld_service { 'Allow http from the external zone':
+        ensure  => 'present',
+        service => 'http',
+        zone    => 'public',
+    }
+
+
     package{'httpd':
         ensure => installed,
     }
@@ -37,6 +45,13 @@ node slave1.puppet {
 }
 
 node slave2.puppet {
+
+    firewalld_service { 'Allow http from the external zone':
+        ensure  => 'present',
+        service => 'http',
+        zone    => 'public',
+    }
+
     package{['httpd','php']:
         ensure => installed,
     }
