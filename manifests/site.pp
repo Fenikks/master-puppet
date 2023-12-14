@@ -14,7 +14,7 @@ node master.puppet {
     }
 
     nginx::resource::server { 'dynamic':
-        listen_port => 80,
+        listen_port => 81,
         proxy       => 'http://192.168.50.15',
     }
 }
@@ -53,6 +53,6 @@ node slave2.puppet {
     }
 }
 
-node manicraft.puppet {
+node minecraft.puppet {
     include minecraft
 }
