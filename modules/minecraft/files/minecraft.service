@@ -1,5 +1,5 @@
 [Unit]
-Description=wcg service
+Description=minecraft service
 
 [Service]
 WorkingDirectory=/opt/minecraft

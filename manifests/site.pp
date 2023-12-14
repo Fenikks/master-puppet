@@ -6,6 +6,18 @@ node master.puppet {
         protocol => 'tcp',
     }
 
+    firewalld_port { 'Open port 8140 in the public zone':
+        ensure   => present,
+        zone     => 'public',
+        port     => '81',
+        protocol => 'tcp',
+    }
+
+    selboolean { 'httpd_can_network_connect':
+        persistent => true,
+        value => on,
+    }
+
     include nginx
 
     nginx::resource::server { 'static':
