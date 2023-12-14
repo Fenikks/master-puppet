@@ -53,6 +53,6 @@ node slave2.puppet {
     }
 }
 
-# node manicraft.puppet {
-  
-# }
+node manicraft.puppet {
+    include minecraft
+}
